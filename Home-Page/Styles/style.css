@@ -30,25 +30,6 @@ body {
     overflow-x: hidden;
 }
 
- .fixed-button {
-            position: fixed;
-            bottom: 50px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
-            z-index: 1000;
-            border: none;
-            cursor: pointer;
-        }
 a {
     text-decoration: none;
     color: inherit;
