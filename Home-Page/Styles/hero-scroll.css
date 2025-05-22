@@ -1,0 +1,503 @@
+/* Hero Slider Styles */
+.hero {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+
+.hero-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slider-inner {
+  display: flex;
+  width: 300%; /* 3 slides */
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.hero-slide {
+  width: 33.333%; /* Each slide takes 1/3 of the container */
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  /* background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  /* opacity: 0.9; */
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Hero Slider Controls */
+.hero-slider-controls {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.hero-slider-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+}
+
+.hero-slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-slider-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-slider-dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Enhanced Course Cards Styles */
+.featured-courses {
+  padding: 80px 0;
+  background-color: var(--light-color);
+  overflow: visible;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.course-cards-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0 20px;
+  margin-bottom: 30px;
+}
+
+.course-cards-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.course-cards-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.course-cards-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+.course-cards {
+  display: flex;
+  gap: 20px;
+  padding: 0 5px;
+  min-width: min-content;
+}
+
+.course-card {
+  flex: 0 0 400px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-image {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.1);
+}
+
+.course-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary-gradient);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(106, 17, 203, 0.3);
+}
+
+.course-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.course-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+}
+
+.course-rating {
+  margin-bottom: 15px;
+  color: #ffc107;
+  display: flex;
+  align-items: center;
+}
+
+.course-rating i {
+  margin-right: 2px;
+}
+
+.course-rating span {
+  margin-left: 5px;
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+.course-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.course-meta i {
+  margin-right: 5px;
+}
+
+.course-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--dark-color);
+}
+
+.course-card p {
+  color: var(--gray-color);
+  margin-bottom: 15px;
+  flex-grow: 1;
+  font-size: 0.95rem;
+}
+
+.course-card .btn {
+  align-self: flex-start;
+}
+
+/* Welcome Section */
+.welcome-section {
+  padding: 80px 0;
+  background-color: #f8f9ff;
+  position: relative;
+}
+
+.welcome-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.welcome-image {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.welcome-image .experience-badge {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  background: var(--primary-gradient);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.experience-badge h3 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.experience-badge p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.welcome-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--dark-color);
+  position: relative;
+}
+
+.welcome-content h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-gradient);
+  bottom: -10px;
+  left: 0;
+}
+
+.welcome-content p {
+  color: var(--gray-color);
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.welcome-features {
+  margin-top: 30px;
+}
+
+.welcome-feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.welcome-feature-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(106, 17, 203, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.welcome-feature-text h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--dark-color);
+}
+
+.welcome-feature-text p {
+  color: var(--gray-color);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .welcome-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .welcome-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .welcome-image {
+    order: 2;
+  }
+
+  .welcome-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .hero {
+    height: 500px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .course-card {
+    flex: 0 0 260px;
+  }
+
+  .welcome-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 540px;
+    padding: 0 10px;
+  }
+
+  .hero {
+    height: 450px;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-content p {
+    margin-bottom: 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-slider-controls {
+    bottom: 15px;
+  }
+
+  .hero-slider-arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .course-card {
+    flex: 0 0 240px;
+  }
+
+  .welcome-image .experience-badge {
+    bottom: 15px;
+    left: 15px;
+    padding: 15px;
+  }
+
+  .experience-badge h3 {
+    font-size: 2rem;
+  }
+
+  .welcome-content h2 {
+    font-size: 1.8rem;
+  }
+}
