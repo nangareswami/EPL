@@ -63,7 +63,8 @@
 
 /* Animated Text */
 .animated-text {
-    background: linear-gradient(to right, #854dc1, #4385f8, #6a11cb);
+    background: white;
+    /* linear-gradient(to right, #854dc1, #4385f8, #6a11cb); */
     background-size: 200% auto;
     color: #fff;
     background-clip: text;
