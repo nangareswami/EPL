@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        body {
+            height: 1500px;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .stats-container {
+            background: linear-gradient(135deg, #3f51b5 0%, #3f3c3c 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 50% 50% / 20px;
+            margin-bottom: 50px;
+        }
+
+        .stats-container h1 {
+            font-size: 28px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .stats-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-box {
+            padding: 20px;
+            width: 33.33%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-wrapper {
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+
+            .stat-box {
+                width: 33.33%;
+                padding: 10px;
+            }
+
+            .stat-number {
+                font-size: 22px;
+            }
+
+            .stat-label {
+                font-size: 12px;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .add-btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: #0052a3;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px;
+            width: 95%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-icon {
+            font-size: 24px;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-text-container {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        .testimonial-text-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .testimonial-text-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .testimonial-text-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .testimonial-text-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .testimonial-text {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .social-icon {
+            margin-top: 5px;
+            color: #0077b5;
+            font-size: 20px;
+        }
+
+        .course-info {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .course-name,
+        .faculty-name {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .course-title,
+        .faculty-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        #add-testimonial-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* add this line */
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0052a3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        :root {
+            --primary-color: #11a3cb;
+            --primary-gradient: linear-gradient(135deg, #43aefa 0%, rgb(95, 182, 232) 30%, rgb(76, 239, 236) 70%);
+            --dark-color: #1a1a2e;
+            --light-color: #f8fafc;
+            ;
+            --gray-color: #6b7280;
+            --gray-light: #e5e7eb;
+            --danger-color: rgb(247, 50, 50);
+            --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 70px 0 20px;
+
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #d1d5db;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-newsletter h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-newsletter p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #d1d5db;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: #d1d5db;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        .highlight {
+            color: #11a3cb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stats-container">
+        <h1>OUR STATISTICS</h1>
+
+        <div class="stats-wrapper">
+            <div class="stat-box">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number" id="allstudents">0</div>
+                <div class="stat-label">ALL STUDENTS</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-icon">🧑🏻‍🎓</div>
+                <div class="stat-number" id="current">0</div>
+                <div class="stat-label">CURRENT STUDENTS</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-icon">🔑</div>
+                <div class="stat-number" id="passout">0</div>
+                <div class="stat-label">PASSOUT</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function animateCounter(elementId, targetNumber, duration = 1000) {
+            const element = document.getElementById(elementId);
+            let startTime = null;
+            const formatter = new Intl.NumberFormat('en-US');
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const currentValue = Math.floor(progress * targetNumber);
+
+
+                element.textContent = formatter.format(currentValue);
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+
+            window.requestAnimationFrame(step);
+        }
+
+        window.addEventListener('load', () => {
+            animateCounter('allstudents', 950);
+            animateCounter('current', 150);
+            animateCounter('passout', 800);
+        });
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            if (!animated && isElementInViewport(document.querySelector('.stats-container'))) {
+                animateCounter('allstudents', 950);
+                animateCounter('current', 150);
+                animateCounter('passout', 800);
+                animated = true;
+            }
+        });
+    </script>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Feedback Page</h1>
+            <button class="add-btn" id="open-modal-btn">Add Feedback</button>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-container">
+            <!-- Testimonials will be added here dynamically -->
+        </div>
+    </div>
+
+    <!-- Add Testimonial Modal -->
+    <div id="add-testimonial-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Your Feedback</h2>
+                <span class="close-btn" id="close-modal-btn">&times;</span>
+            </div>
+            <form id="testimonial-form">
+                <div class="form-group">
+                    <label for="testimonial-text">Your Feedback</label>
+                    <textarea id="testimonial-text" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="author-name">Your Name</label>
+                    <input type="text" id="author-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="author-img">Profile Image URL (optional)</label>
+                    <input type="url" id="author-img">
+                </div>
+                <div class="form-group">
+                    <label for="social-profile">LinkedIn Username (optional)</label>
+                    <input type="text" id="social-profile">
+                </div>
+                <div class="form-group">
+                    <label for="course-name">Course Name</label>
+                    <select id="course-name" required>
+                        <option value="">Select a course</option>
+                        <option value="Full Stack .NET Core">Java</option>
+                        <option value="Full Stack Python">Python</option>
+                        <option value="Full Stack Java">C programming</option>
+                        <option value="DevOps">Data Structure Using C</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="faculty-name">Faculty Name</label>
+                    <input type="text" id="faculty-name" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+    <!-- Footer Section -->
+     
+
+
+    <script>
+        // Sample testimonial data
+        const testimonials = [
+            {
+                text: "I completed the C programming Online Training with Mr. Dhakne sir at EPL. His clear and engaging teaching was invaluable, and I'm pleased to share that I've been placed as C developer at Choice Solutions. Thank you, Mr. Dhakne, and EPL, for the excellent training! This is additional text to demonstrate the scrollbar functionality. The scrollbar will appear when the content becomes too long to fit in the designated space. This way, the user profile information and course details remain static at the bottom of the card while allowing the testimonial text to be scrollable if it exceeds the available space.",
+                author: "Rahul Shelke",
+                image: "../images/feedback.png",
+                socialProfile: "in",
+                course: "C Programming",
+                faculty: "Mr. Dhakne"
+            },
+            {
+                text: "I recently completed the Java training with Mr. Mhaske sir at EPL. Thanks to his expertise and support, I'm now successfully working as a Java Developer. I'm grateful for the exceptional training and would like to extend my thanks to Mr. Mhaske and EPL for this valuable opportunity! The knowledge and skills I gained during this course have been instrumental in helping me secure this position. The hands-on projects and real-world applications we worked on gave me the confidence to tackle complex programming challenges in my new role.",
+                author: "Durga Dhokle",
+                image: "../images/feedback.png",
+                socialProfile: "in",
+                course: "Java",
+                faculty: "Mr. Mhaske"
+            },
+            {
+                text: "I finished the Data Structure Using C course with Mr. Ugale and at EPL, and Java training with  Mr. Dhakne sir it was an excellent experience. His clear and practical teaching approach helped me grasp complex concepts easily. A big thank you to Mr. Ugale and EPL for the outstanding training! The course curriculum was well-structured and covered all the essential topics in depth. The programming exercises and assignments were challenging but very rewarding, helping me develop strong problem-solving skills that are highly valued in the industry.",
+                author: "Anjali Bade",
+                image: "../images/feedback.png",
+                socialProfile: "in",
+                course: "Java ,Data Structure Using C",
+                faculty: "Mr. Dhakne sir , Mr. Ugale sir"
+            }
+        ];
+
+        // Function to create testimonial cards
+        function createTestimonialCard(testimonial) {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+
+            card.innerHTML = `
+                <div class="quote-icon">&ldquo;</div>
+                <div class="testimonial-text-container">
+                    <p class="testimonial-text">${testimonial.text}</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="${testimonial.image || '/api/placeholder/50/50'}" alt="${testimonial.author}">
+                    </div>
+                    <div>
+                        <p class="author-name">${testimonial.author}</p>
+                        ${testimonial.socialProfile ? `<div class="social-icon">
+                            <span class="${testimonial.socialProfile}">${testimonial.socialProfile === 'in' ? 'LinkedIn' : testimonial.socialProfile}</span>
+                        </div>` : ''}
+                    </div>
+                </div>
+                <div class="course-info">
+                    <p class="course-name">course : <span class="course-title">${testimonial.course}</span></p>
+                    <p class="faculty-name">Faculty name : <span class="faculty-title">${testimonial.faculty}</span></p>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Function to render all testimonials
+        function renderTestimonials() {
+            const container = document.getElementById('testimonials-container');
+            container.innerHTML = '';
+
+            testimonials.forEach(testimonial => {
+                const card = createTestimonialCard(testimonial);
+                container.appendChild(card);
+            });
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('add-testimonial-modal');
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const testimonialForm = document.getElementById('testimonial-form');
+
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        testimonialForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const newTestimonial = {
+                text: document.getElementById('testimonial-text').value,
+                author: document.getElementById('author-name').value,
+                image: document.getElementById('author-img').value || '/api/placeholder/50/50',
+                socialProfile: document.getElementById('social-profile').value ? 'in' : '',
+                course: document.getElementById('course-name').value,
+                faculty: document.getElementById('faculty-name').value
+            };
+
+            testimonials.unshift(newTestimonial);
+            renderTestimonials();
+
+            // Reset form and close modal
+            testimonialForm.reset();
+            modal.style.display = 'none';
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', renderTestimonials);
+    </script>
+</body>
+
+</html>
