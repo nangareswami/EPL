@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Contact Us | Learning Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/contact.css">
+</head>
+<body>
+       
+    
+    <main class="contact-container">
+        <h1>Get in Touch With Us</h1>
+        <p class="subtitle">Have questions? We're here to help!</p>
+        
+   
+<div class="contact-content">
+  <section class="contact-form">
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="from_name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="reply_to" required />
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="General Inquiry">General Inquiry</option>
+          <option value="Course Questions">Course Questions</option>
+          <option value="Technical Support">Technical Support</option>
+          <option value="Feedback">Feedback</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+      <div id="formResponse"></div>
+    </form>
+  </section>
+
+  <section class="contact-info">
+    <h2>Contact Information</h2>
+    <div class="info-item">
+      <a href="https://maps.app.goo.gl/KCkTNkQqjaUnjeg88" > <i class="fas fa-map-marker-alt"></i>
+     </a>Excellent Programming Labratory</a>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-phone"></i>
+      <p>+91 7741954147 , +91 9665480640</p>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-envelope"></i>
+      <p>dhakanegorakash7741@gmail.com</p>
+    </div>
+
+    <div class="social-links">
+      <h3>Follow Us</h3>
+      <a href="https://www.instagram.com/epl_class?igsh=ZHNhanZub2gwNWVw"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/gorakash-dhakane-93973b233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtube.com/@epl-class123?si=rnLstIKwQkF7lIJN"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <div class="hours">
+      <h3>Support Hours</h3>
+      <p>Monday-Friday: 9am - 10pm</p>
+      <p>Saturday: Anytime</p>
+      <p>Sunday: Anytime</p>
+    </div>
+  </section>
+</div>
+
+<!-- EmailJS CDN -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      
+  const SERVICE_ID = 'YOUR_SERVICE_ID';     
+  const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';   
+
+  emailjs.init(PUBLIC_KEY);
+
+  const form = document.getElementById('contactForm');
+  const submitBtn = form.querySelector('.submit-btn');
+  const responseDiv = document.getElementById('formResponse');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    responseDiv.textContent = '';
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
+      .then(() => {
+        responseDiv.textContent = 'Message sent successfully!';
+        responseDiv.style.color = 'green';
+        form.reset();
+      })
+      .catch(() => {
+        responseDiv.textContent = 'EmailJS failed, sending via backup...';
+        responseDiv.style.color = 'orange';
+
+        // Create form data object for fetch
+        const formData = new FormData(form);
+        formData.append('_subject', 'New Contact Form Submission');
+        formData.append('_template', 'box');
+        formData.append('_captcha', 'false');
+
+        fetch('https://formsubmit.co/ajax/priyankagangavane29@gmail.com', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+          responseDiv.textContent = 'Message sent via backup successfully!';
+          responseDiv.style.color = 'green';
+          form.reset();
+        })
+        .catch(() => {
+          responseDiv.textContent = 'Both methods failed. Please try again later.';
+          responseDiv.style.color = 'red';
+        });
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      });
+  });
+</script>
+
+        
+       <!-- Team Section -->
+        <!--<div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="mr.dhakane.jpg" alt="mr.dhakane" class="member-photo">
+                    <h3 class="member-name">Mr.Dhakane</h3>-->
+                   <!-- <p class="member-position">Head of Education</p>-->
+                    
+                  <!---  <i class="fa-solid fa-graduation-cap"><p>mca from sppu</p></i>
+                    <i class="fa-solid fa-briefcase"><p>software devloper</p></i>
+                    <i class="fa-solid fa-building"><p> currrently working in TCS</p></i>
+                    <div class="member-links">
+                        <a href="https://www.linkedin.com/in/gorakash-dhakane-93973b233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href=""><i class="fab fa-facebook-f"></i></a>-->
+                       <!-- <a href="dhakanegorakash7741@gmail.com"><i class="fas fa-envelope"></i></a>-->
+                   <!-- </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="ganesh.jpg" alt="ganesh mhaske" class="member-photo">
+                    <h3 class="member-name">Mr.Mhaske</h3>-->
+                   <!-- <p class="member-position">Technical Director</p>-->
+                   <!-- <i class="fa-solid fa-graduation-cap"><p>mca from sppu</p></i>
+                    <i class="fa-solid fa-briefcase"><p>software devloper | 5+ years experience</p></i>
+                    <i class="fa-solid fa-building"><p> currrently working in HSBC </p></i>
+                    <div class="member-links">
+                        <a href="https://www.linkedin.com/in/ganeshmhaske?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/1AYH1CyzcQ/"><i class="fab fa-facebook-f"></i></a>-->
+                        <!--<a href="gdmhaske700@gmail.com"><i class="fas fa-envelope"></i></a>-->
+                    </div>
+                </div>
+                
+               <!-- <div class="team-member">
+                    <img src="ugle.jpg" alt=" chandrshekhar ugle" class="member-photo">
+                    <h3 class="member-name">Mr.Ugale</h3>
+                    <p class="member-position">Student Support</p>
+                    <i class="fa-solid fa-graduation-cap"><p>Master`s in computer application</p></i>
+                    <i class="fa-solid fa-briefcase"><p>Master in computer application</p></i>
+                    <div class="member-links">
+                        <a href="https://www.linkedin.com/in/chandrashekhar-ugale-953a83366?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/16Xf8Bbqtd/"><i class="fab fa-facebook-f"></i></a>-->
+ 
+                       <!--<a href="chandrashekharugale45@gmail.com"><i class="fas fa-envelope"></i></a>-->
+                   <!-- </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- Team Section -->
+
+<div class="team-section">
+  <h2>Meet Our Team</h2>
+  <div class="team-members">
+      <div class="team-member">
+          <img src="../images/contact-us-images/iimag1.jpg" alt="mr.dhakane" class="member-photo">
+          <h3 class="member-name"> <span>👨‍💻</span>Mr.Goraksh Dhakane </h3>
+          
+          <div class="member-details">
+              <div class="detail-item">
+                  <i class="fa-solid fa-graduation-cap" style="color: #4CAF50;"></i>
+                  <span>MCA from SPPU</span>
+              </div>
+              <div class="detail-item">
+                  <i class="fa-solid fa-briefcase" style="color: #2196F3;"></i>
+                  <span>Software Developer</span>
+              </div>
+              <div class="detail-item">
+                  <i class="fa-solid fa-building" style="color: #FF9800;"></i>
+                  <span>Currently working in TCS</span>
+              </div>
+          </div>
+          
+          <div class="member-links">
+              <a href="mailto: dhakanegorakash7741@gmail.com"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/gorakash-dhakane-93973b233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+          </div>
+      </div>
+      
+      <div class="team-member">
+          <img src="../images/contact-us-images/iimg2.jpg" alt="ganesh mhaske" class="member-photo">
+          <h3 class="member-name"> <span>👨‍💻</span> Mr.Ganesh Mhaske </h3>
+          
+          <div class="member-details">
+              <div class="detail-item">
+                  <i class="fa-solid fa-graduation-cap" style="color: #4CAF50;"></i>
+                  <span>MCA from SPPU</span>
+              </div>
+              <div class="detail-item">
+                  <i class="fa-solid fa-briefcase" style="color: #2196F3;"></i>
+                  <span>Software Developer | 5+ years experience</span>
+              </div>
+              <div class="detail-item">
+                  <i class="fa-solid fa-building" style="color: #FF9800;"></i>
+                  <span>Currently working in HSBC</span>
+              </div>
+          </div>
+          
+          <div class="member-links">
+              <a href="mailto:gdmhaske700@gmail.com"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/ganeshmhaske?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.facebook.com/share/1AYH1CyzcQ/"><i class="fab fa-facebook-f"></i></a>
+          </div>
+      </div>
+      
+      <div class="team-member" style="width: 310px;">
+          <img src="../images/contact-us-images/iimsg3.jpg" alt="chandrshekhar ugle" class="member-photo">
+          <h3 class="member-name"> <span>👨‍💻</span> Mr.Ugale Chandrashekhar </h3>
+          <p class="member-position">Student Support</p>
+          
+          <div class="member-details">
+              <div class="detail-item">
+                  <i class="fa-solid fa-graduation-cap" style="color: #4CAF50;"></i>
+                  <span>Master's in Computer Application</span>
+              </div>
+              <div class="detail-item">
+                  <i class="fa-solid fa-briefcase" style="color: #2196F3;"></i>
+                  <span>Master in Computer Application</span>
+              </div>
+          </div>
+          
+          <div class="member-links">
+              <a href="mailto:chandrashekharugale45@gmail.com"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/chandrashekhar-ugale-953a83366?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.facebook.com/share/16Xf8Bbqtd/"><i class="fab fa-facebook-f"></i></a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+        <!-- Location Map Section -->
+        <div class="location-map">
+            <h2>Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.401122131214!2d75.2158158!3d19.3517767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb693da78b0ec5%3A0xa3c27203a299d9ae!2sEXCELLENT%20PROGRAMMING%20LABORATORY%20(EPL%20CLASSES)!5e0!3m2!1sen!2sin!4v1747506381401!5m2!1sen!2sin"  width="1200" height="450" style="border:0;"allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+                   
+        </div>
+    </main>
+</body>
+</html>
