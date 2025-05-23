@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Journey | Excellent Programming Laboratory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/about_Internship.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+      <!-- Bootstrap Bundle JS (includes Popper) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         :root {
-            --primary-color: #2563eb;
+            --primary-color: #051b4a;
             --primary-light: #60a5fa;
             --primary-dark: #1e40af;
-            --secondary-color: #0ea5e9;
+            --secondary-color: #0b6f9d;
             --accent-color: #0284c7;
             --dark-color: #1e293b;
             --light-color: #f8fafc;
@@ -29,7 +39,8 @@
             font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             width: 100%;
             overflow-x: hidden;
@@ -242,7 +253,7 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 20px rgba(44, 62, 102, 0.3);
         }
 
         /* Features Grid */
@@ -316,7 +327,7 @@
 
         /* Footer Section */
         footer {
-           background-color: black;
+            background-color: black;
             color: white;
             padding: 70px 0 20px;
             margin-top: auto;
@@ -450,11 +461,11 @@
             .container {
                 padding: 30px 20px;
             }
-            
+
             h1 {
                 font-size: 40px;
             }
-            
+
             .footer-content {
                 gap: 30px;
             }
@@ -495,7 +506,7 @@
             .cta-heading {
                 font-size: 28px;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
@@ -506,7 +517,7 @@
             .container {
                 padding: 20px 15px;
             }
-            
+
             h1 {
                 font-size: 32px;
             }
@@ -538,23 +549,123 @@
             .cta-heading {
                 font-size: 24px;
             }
-            
+
             .feature-card {
                 padding: 20px;
             }
-            
+
             .icon-container {
                 width: 50px;
                 height: 50px;
             }
-            
+
             .feature-title {
                 font-size: 18px;
             }
         }
+
+        .certificate-content {
+            display: flex;
+            height: 400px;
+             border-radius: 0 0 50% 50% / 40px;
+            width: 100%;
+            background-color: #bdd2de;
+            padding: 20px;
+            box-sizing: border-box;
+            color: rgb(7, 6, 6);
+            gap: 20px;
+            font-weight: 700;
+        }
+
+        .certificate,
+        .content {
+            flex: 1;
+            /* Makes both columns equal width */
+        }
+
+        .certificate img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .btn{
+            margin-top:55px;
+            height:50px;
+            width:30%;
+        }
+@media (max-width: 768px) {
+    .certificate-content {
+        flex-direction: column; 
+        height: auto;           
+        border-radius: 0;       
+        padding: 20px 10px;     
+        text-align: center;     
+        gap: 30px;             
+    }
+
+    .certificate, 
+    .content {
+        flex: none;           
+        width: 100%;            
+        animation: none;        
+        opacity: 1;             
+        transform: none;        
+    }
+
+    .certificate img {
+        max-height: 250px;      
+        margin: 0 auto;         
+    }
+
+    .btn {
+        width: 100%;            
+        margin-top: 30px;       
+        height: 45px;          
+    }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+    .certificate-content {
+        padding: 15px 10px;
+        gap: 20px;
+    }
+
+    .certificate img {
+        max-height: 180px; 
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+        
     </style>
 </head>
+
 <body>
+    <div class="certificate-content">
+        <div class="certificate">
+            <img src="../images/Certificate.png">
+        </div>
+
+        <div class="content">
+            <h1><b>The New Way to success</b></h1>
+            📜 Accreditation & Certification
+            We are proud to be ISO 9001:2015 Certified, ensuring high-quality management standards in all our training
+            programs.
+            Excellent Programming Laboratory (EPL), located opposite the Residential High School on Miri Road in Shevgaon, Ahmednagar, Maharashtra (414502), is proud to be recognized for its commitment to quality in education.
+             
+            <button class="btn btn-primary">ENQUIRE NOW</button>
+        </div>
+    </div>
+
+
+
+
     <div class="container">
         <header>
             <h1>Our Journey</h1>
@@ -568,7 +679,10 @@
                         <div class="year">2021</div>
                         <div class="year-title">A Humble Beginning</div>
                         <div class="year-content">
-                            <p>Our program officially began on 10th September 2021 Started with an intention to provide a just opportunity to maximum students who deserve a chance in the IT Industry! Driven by a sincere mission to offer fair opportunities to as many deserving students as possible, opening doors to a bright future in the IT industry.</p>
+                            <p>Our program officially began on 10th September 2021 Started with an intention to provide
+                                a just opportunity to maximum students who deserve a chance in the IT Industry! Driven
+                                by a sincere mission to offer fair opportunities to as many deserving students as
+                                possible, opening doors to a bright future in the IT industry.</p>
                             <div class="stat">4 students joined</div>
                             <div class="stat">2 teachers</div>
                         </div>
@@ -580,7 +694,10 @@
                         <div class="year">2022</div>
                         <div class="year-title">Expanding Our Reach</div>
                         <div class="year-content">
-                            <p>Significant growth in our student base as word spread about our placement success . With growing trust and recognition, our programs saw a surge in enrollments. A total of 150 students joined us, and more than 100 secured placements — a strong reflection of our commitment to student success.</p>
+                            <p>Significant growth in our student base as word spread about our placement success . With
+                                growing trust and recognition, our programs saw a surge in enrollments. A total of 150
+                                students joined us, and more than 100 secured placements — a strong reflection of our
+                                commitment to student success.</p>
                             <div class="stat">150 students joined</div>
                             <div class="stat">100+ students placed</div>
                         </div>
@@ -592,7 +709,11 @@
                         <div class="year">2023</div>
                         <div class="year-title">Growing Stronger</div>
                         <div class="year-content">
-                            <p>Our reputation in the industry continued to grow as more companies recognized our students' quality.Building on our momentum, 2023 saw continued growth in both student enrollment and placement success . Over 300 students enrolled, with more than 200 securing positions at leading companies, further strengthening our industry reputation.</p>
+                            <p>Our reputation in the industry continued to grow as more companies recognized our
+                                students' quality.Building on our momentum, 2023 saw continued growth in both student
+                                enrollment and placement success . Over 300 students enrolled, with more than 200
+                                securing positions at leading companies, further strengthening our industry reputation.
+                            </p>
                             <div class="stat">300 students enrolled</div>
                             <div class="stat">200+ students placed</div>
                         </div>
@@ -604,8 +725,11 @@
                         <div class="year">2024</div>
                         <div class="year-title">Reaching New Heights</div>
                         <div class="year-content">
-                            <p>Expanded our curriculum and facilities to accommodate more students and offer diverse courses. We expanded our curriculum and upgraded our facilities to support a growing student community and provide a wider range of specialized courses tailored to industry demands.
-</p>
+                            <p>Expanded our curriculum and facilities to accommodate more students and offer diverse
+                                courses. We expanded our curriculum and upgraded our facilities to support a growing
+                                student community and provide a wider range of specialized courses tailored to industry
+                                demands.
+                            </p>
                             <div class="stat">400 students enrolled</div>
                             <div class="stat">300+ students placed</div>
                         </div>
@@ -617,7 +741,10 @@
                         <div class="year">2025</div>
                         <div class="year-title">Where We Are Today</div>
                         <div class="year-content">
-                            <p>A testament to our commitment to quality education and placement opportunities.Our journey reflects a steadfast commitment to delivering quality education and exceptional placement opportunities. Today, we proudly serve over 500 enrolled students, with more than 400 successfully placed in reputable companies.</p>
+                            <p>A testament to our commitment to quality education and placement opportunities.Our
+                                journey reflects a steadfast commitment to delivering quality education and exceptional
+                                placement opportunities. Today, we proudly serve over 500 enrolled students, with more
+                                than 400 successfully placed in reputable companies.</p>
                             <div class="stat">500+ students enrolled</div>
                             <div class="stat">400+ students placed</div>
                             <div class="stat">3 teachers</div>
@@ -635,18 +762,23 @@
 
         <div class="cta-section">
             <h2 class="cta-heading">Join Our Success Story</h2>
-            <p class="cta-text">Be part of our growing community where we focus on nurturing talent and creating IT professionals. We offer flexible learning options, including online and offline classes, extended support hours, and the opportunity to repeat batches if needed. Become a member of our thriving community dedicated to nurturing talent and shaping the next generation of IT professionals. We provide flexible learning formats—online and offline—along with extended support hours and the option to repeat batches to ensure your success.</p>
-          <a href="course.html"><button class="cta-button">Enroll Now</button></a>
+            <p class="cta-text">Be part of our growing community where we focus on nurturing talent and creating IT
+                professionals. We offer flexible learning options, including online and offline classes, extended
+                support hours, and the opportunity to repeat batches if needed. Become a member of our thriving
+                community dedicated to nurturing talent and shaping the next generation of IT professionals. We provide
+                flexible learning formats—online and offline—along with extended support hours and the option to repeat
+                batches to ensure your success.</p>
+            <a href="course.html"><button class="cta-button">Enroll Now</button></a>
         </div>
     </div>
-           
+
     <div class="container">
         <div class="features-grid">
             <!-- Career-Focused Tech Academy -->
             <div class="feature-card">
                 <div class="icon-container blue">
                     <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                 </div>
                 <h3 class="feature-title">Career-Focused Tech Academy</h3>
@@ -659,15 +791,16 @@
             <div class="feature-card">
                 <div class="icon-container purple">
                     <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     </svg>
                 </div>
                 <h3 class="feature-title">Guidance from Industry Experts</h3>
                 <p class="feature-description">
-                    Learn directly from experienced professionals who bring real-world expertise to your learning journey.
+                    Learn directly from experienced professionals who bring real-world expertise to your learning
+                    journey.
                 </p>
             </div>
 
@@ -675,23 +808,24 @@
             <div class="feature-card">
                 <div class="icon-container teal">
                     <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                     </svg>
                 </div>
                 <h3 class="feature-title">Comprehensive & Future-Ready Curriculum</h3>
                 <p class="feature-description">
-                    Stay ahead with an in-depth course structure that aligns with the latest industry trends and technologies.
+                    Stay ahead with an in-depth course structure that aligns with the latest industry trends and
+                    technologies.
                 </p>
             </div>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Animate timeline elements on scroll
             const yearContainers = document.querySelectorAll('.year-container');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -703,7 +837,7 @@
             }, {
                 threshold: 0.1
             });
-            
+
             yearContainers.forEach(container => {
                 observer.observe(container);
             });
@@ -712,15 +846,15 @@
             function equalizeHeights() {
                 let maxHeight = 0;
                 const yearBoxes = document.querySelectorAll('.year-box');
-                
+
                 // Reset heights first
                 yearBoxes.forEach(box => box.style.height = 'auto');
-                
+
                 // Get max height
                 yearBoxes.forEach(box => {
                     maxHeight = Math.max(maxHeight, box.offsetHeight);
                 });
-                
+
                 // Set all boxes to max height
                 if (window.innerWidth > 768) {
                     yearBoxes.forEach(box => {
@@ -728,15 +862,15 @@
                     });
                 }
             }
-            
+
             // Run on load and resize
             window.addEventListener('load', equalizeHeights);
             window.addEventListener('resize', equalizeHeights);
 
             // Feature cards animation
             const cards = document.querySelectorAll('.feature-card');
-            
-            const cardObserver = new IntersectionObserver(function(entries) {
+
+            const cardObserver = new IntersectionObserver(function (entries) {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
                         setTimeout(() => {
@@ -759,4 +893,5 @@
         });
     </script>
 </body>
+
 </html>
