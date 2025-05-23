@@ -14,7 +14,7 @@ body {
     width: 100%;
     /* background-color: rgb(216, 213, 213); */
     /* background: linear-gradient(to bottom, #223688, #4d2b9e); */
-    background: linear-gradient(to bottom,  #0b1531,  #193278);
+    background: linear-gradient(to bottom,  #023053,  #02518d);
 }
 .container1,
 .container2 {
@@ -43,7 +43,7 @@ body {
     width: 24%;
     color: #abc1fc;
     font-weight: 500;
-    background-color: #394987;
+    background-color: #184992;
 }
 .container2 {
     height: 90px;
