@@ -83,7 +83,7 @@ img {
 }
 
 .highlight {
-    color: black 
+    color:var(--primary-color) ;
     position: relative;
     z-index: 10;
 }
