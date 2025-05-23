@@ -1,0 +1,215 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f8fafc;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Header */
+.learning-paths-header {
+    width: 100%;
+    background: linear-gradient(to right, #3f51b5, #032d44);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    height: 80px;
+}
+
+.header-title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.header-subtitle {
+    font-size: 1.4rem;
+    opacity: 0;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 95%;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    height: 190px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.card {
+    width: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-description {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.card-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    font-size: 1rem;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes riseFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.slide-up {
+    animation: riseFadeIn 7.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .learning-paths-header {
+        padding: 60px 15px;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: calc(100% - 20px);
+        margin: 10px 0;
+    }
+
+    .card-image {
+        height: 180px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+
+    .card-description {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .card-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}

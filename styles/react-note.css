@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 1rem; /* Normal base font size, equivalent to 16px */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 30px;
+    font-size: 2.5rem; /* Significantly bigger font size for the main title */
+}
+
+.training-sections {
+    list-style: none;
+    padding: 0;
+}
+
+.section {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.section-header {
+    background-color: #1d3855;
+    color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5rem; /* Bigger font size for section headers */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.section-header:hover {
+    background-color: #849fbc;
+    color: rgb(22, 22, 22);
+}
+
+/* Plus/Minus icon for collapsible sections */
+.section-header::after {
+    content: '+';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.section-header.active::after {
+    content: '-';
+    transform: rotate(0deg);
+}
+
+.subsection-list {
+    list-style: none;
+    padding: 0 20px 10px 20px;
+    margin: 0;
+    display: none; /* Hidden by default */
+    border-top: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+.subsection-list li {
+    padding: 10px 0; /* Slightly more padding for readability */
+    border-bottom: 1px dashed #eee;
+    font-size: 1.1rem; /* Normal font size for subsections, a bit larger than base */
+}
+
+.subsection-list li:last-child {
+    border-bottom: none;
+}
+
+.subsection-list li ul { /* Targeting nested ul within subsections */
+    list-style: none; /* Remove default list style for sub-sub-sections */
+    padding-left: 20px; /* Indent nested lists */
+    margin-top: 5px;
+}
+
+.subsection-list li ul li { /* Targeting individual items within nested lists */
+    font-size: 1rem; /* Normal font size for sub-sub sections */
+    border-bottom: none; /* No border for sub-sub items */
+    padding: 5px 0; /* Adjust padding for nested items */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .section-header {
+        font-size: 1.3rem;
+        padding: 12px 15px;
+    }
+
+    .subsection-list li {
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+
+    .subsection-list li ul li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem; /* Smaller base font for very small screens */
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-header {
+        font-size: 1.1rem;
+        padding: 10px 12px;
+    }
+
+    .subsection-list li {
+        font-size: 0.9rem;
+        padding: 6px 0;
+    }
+
+    .subsection-list li ul {
+        padding-left: 15px;
+    }
+
+    .subsection-list li ul li {
+        font-size: 0.85rem;
+    }
+}

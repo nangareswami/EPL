@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Registration</title>
+  <link rel="stylesheet" href="../styles/buy-login.css">
+  
+</head>
+<body>
+
+<div class="container">
+  <div class="image-section"></div>
+  <div class="form-section">
+    <h3>Welcome</h3>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Full Name" required class="input-field"/>
+      <input type="tel" placeholder="Mobile Number" required class="input-field"/>
+      <input type="email" placeholder="Email Address" required class="input-field"/>
+      <div class="buttons">
+        <button type="button" class="skip-btn" onclick="alert('Skipped!')">Skip</button>
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert("Form submitted!");
+  }
+</script>
+
+</body>
+</html>

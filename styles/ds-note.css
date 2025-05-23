@@ -1,0 +1,228 @@
+
+        /* Custom CSS for the Data Structures Training Content */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 16px;
+            overflow-y: scroll; /* Allow vertical scrolling for long content */
+        }
+
+        .container {
+            /* Using max-width instead of fixed width for better responsiveness */
+            max-width: 900px;
+            margin: 0 auto; /* Centers the container horizontally */
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            width: 100%;
+            display: flex; /* Ensures Bootstrap's flexbox behavior for columns */
+            flex-wrap: wrap; /* Allows columns to wrap to the next line on smaller screens */
+        }
+
+        /* Styling for Data Structures Content (Left Column) */
+        .data-structures-scroll-container {
+            padding-right: 0; /* Remove right padding to allow it to take full width of its column */
+            width: 100%; /* Ensure it takes full width of its parent column */
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3; /* A shade of blue for the heading */
+            margin-bottom: 30px;
+            font-size: 2em; /* Larger font size for the main heading */
+        }
+
+        /* Data Structures Content Accordion Styling */
+        .training-sections {
+            list-style: none; /* Remove default list bullets */
+            padding: 0;
+            width: 100%; /* Ensure the list itself takes full width of its container */
+        }
+
+        .section {
+            margin-bottom: 15px; /* Space between each main section */
+            border: 1px solid #ddd; /* Light gray border */
+            border-radius: 5px; /* Slightly rounded corners */
+            overflow: hidden; /* Ensures content inside respects border-radius */
+            width: 100%; /* Ensure each section takes the full width available to it */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .section-header {
+            background-color: #16314d; /* Dark blue background for headers */
+            color: white; /* White text for headers */
+            padding: 15px 20px;
+            cursor: pointer; /* Indicate clickable element */
+            font-weight: bold;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between; /* Space out title and plus/minus icon */
+            align-items: center;
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            outline: none; /* Remove outline on focus for aesthetic reasons */
+            width: 100%; /* Ensure the header takes full width of its parent section */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .section-header:hover,
+        .section-header:focus {
+            background-color: #7c91a7; /* Lighter blue on hover/focus */
+            color: black; /* Black text on hover/focus */
+        }
+
+        /* Plus/Minus icon for accordion headers */
+        .section-header::after {
+            content: '+'; /* Plus sign by default */
+            font-size: 1.2em;
+            transition: transform 0.3s ease; /* Smooth transition for icon rotation */
+        }
+
+        .section-header.active::after {
+            content: '-'; /* Minus sign when active */
+            transform: rotate(0deg); /* No rotation needed for a simple minus */
+        }
+
+        .subsection-list {
+            list-style: none; /* Remove default list bullets */
+            padding: 0 20px 10px 20px; /* Padding for sub-sections */
+            margin: 0;
+            max-height: 0; /* Initially hidden for accordion effect */
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth slide animation */
+            border-top: 1px solid #eee; /* Light border at the top */
+            background-color: #f9f9f9; /* Very light gray background */
+        }
+
+        .subsection-list.show {
+            max-height: 1000px; /* Large enough value to reveal all content */
+            padding: 0 20px 10px 20px; /* Restore padding when shown */
+        }
+
+        .subsection-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee; /* Dashed separator between list items */
+            font-size: 1em;
+        }
+
+        .subsection-list li:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+
+        .sub-sub-section-list {
+            list-style: disc; /* Default disc bullets for sub-sub-sections */
+            padding-left: 25px; /* Indent sub-sub-sections */
+            margin-top: 5px;
+            font-size: 0.95em; /* Slightly smaller font size */
+        }
+
+        .sub-sub-section-list li {
+            padding: 4px 0;
+            border-bottom: none; /* No border for sub-sub-list items */
+        }
+
+        /* --- Responsive Adjustments --- */
+
+        /* For Tablets and Desktops (applies for large devices and up) */
+        @media (min-width: 992px) {
+            .col-lg-6:first-child { /* Left column (Data Structures) */
+                flex: 0 0 100%; /* Make it take full width on larger screens */
+                max-width: 100%; /* Make it take full width on larger screens */
+            }
+        }
+
+        /* For Medium devices (tablets) and smaller: Columns stack (col-md-12) */
+        @media (max-width: 991.98px) {
+            .col-lg-6 {
+                flex: 0 0 100%; /* Make this column take full width on smaller screens */
+                max-width: 100%; /* Make this column take full width on smaller screens */
+                margin-bottom: 20px; /* Space between stacked sections */
+            }
+
+            .container {
+                width: 100%; /* Allow container to be full width on smaller screens */
+                max-width: none; /* Remove max-width constraint */
+            }
+        }
+
+        /* General responsive adjustments for various screen sizes */
+
+        /* For Tablets (e.g., screens up to 767.98px wide, covers md breakpoint) */
+        @media (max-width: 767.98px) {
+            body {
+                padding: 15px;
+                font-size: 15px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+
+            .section-header {
+                padding: 12px 15px;
+                font-size: 1.1em;
+            }
+
+            .subsection-list {
+                padding: 0 15px 8px 15px;
+            }
+
+            .subsection-list li {
+                font-size: 0.95em;
+            }
+
+            .sub-sub-section-list {
+                padding-left: 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* For Mobile Phones (e.g., screens up to 575.98px wide, covers sm breakpoint) */
+        @media (max-width: 575.98px) {
+            body {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 15px;
+                border-radius: 5px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .section-header {
+                padding: 10px 12px;
+                font-size: 1em;
+            }
+
+            .subsection-list {
+                padding: 0 12px 6px 12px;
+            }
+
+            .subsection-list li {
+                font-size: 0.9em;
+                padding: 6px 0;
+            }
+
+            .sub-sub-section-list {
+                padding-left: 18px;
+                font-size: 0.85em;
+            }
+        }
+   
