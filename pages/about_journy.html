@@ -3,40 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Journey</title>
+    <title>Our Journey | Excellent Programming Laboratory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #60a5fa;
+            --primary-dark: #1e40af;
+            --secondary-color: #0ea5e9;
+            --accent-color: #0284c7;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --gray-light: #e2e8f0;
+            --success-color: #10b981;
+            --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
         }
 
         html, body {
             height: 100%;
             width: 100%;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: linear-gradient(135deg, #0a1226 0%, #1c3a5e 100%);
-            color: #fff;
+            background-color: var(--light-color);
+            color: var(--dark-color);
             min-height: 100vh;
-            padding: 0;
-            margin: 0;
             display: flex;
             flex-direction: column;
+            line-height: 1.6;
         }
 
         .container {
             width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
         }
 
         header {
@@ -48,41 +61,43 @@
         h1 {
             font-size: 48px;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, #a3b8ff, #6a98f0);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: inline-block;
+            font-weight: 800;
         }
 
         .subtitle {
-            color: #b8c6db;
-            font-size: 18px;
+            color: black;
+            font-weight: bold;
+            font-size: 23px;
             max-width: 800px;
             margin: 0 auto;
         }
 
+        /* Timeline Section */
         .timeline-container {
             display: flex;
-            flex: 1;
             width: 100%;
             justify-content: center;
+            margin-bottom: 60px;
         }
 
         .timeline {
             position: relative;
             width: 100%;
-            max-width: 1600px;
+            max-width: 1000px;
             margin: 0 auto;
             padding-left: 50px;
-            flex: 1;
         }
 
         .timeline::after {
             content: '';
             position: absolute;
             width: 6px;
-            background-color: #b6b7b9;
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
             top: 0;
             bottom: 0;
             left: 0;
@@ -96,6 +111,9 @@
             width: 100%;
             margin-bottom: 60px;
             left: 0;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .year-container::after {
@@ -103,108 +121,101 @@
             position: absolute;
             width: 25px;
             height: 25px;
-            background-color: #b6bbc3;
-            border: 4px solid #a3b8ff;
+            background-color: var(--light-color);
+            border: 4px solid var(--primary-color);
             border-radius: 50%;
             top: 15px;
             left: -7px;
             z-index: 1;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::after {
-            right: -13px;
-        }
-
-        .right::after {
-            left: -13px;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
         }
 
         .year-box {
-            padding: 20px 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            background: rgb(229, 237, 240);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--gray-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .year-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .year {
             font-size: 32px;
-            color: #f7f6f5;
+            color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: bold;
         }
 
         .year-title {
             font-size: 24px;
-            color: #a3b8ff;
+            color: var(--dark-color);
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .year-content {
             font-size: 16px;
             line-height: 1.6;
-            color: #ddd;
+            color: var(--gray-color);
         }
 
         .stat {
             display: inline-block;
             padding: 8px 15px;
-            background-color: rgba(0, 102, 255, 0.2);
+            background-color: rgba(37, 99, 235, 0.1);
             border-radius: 20px;
             margin-top: 15px;
             margin-right: 10px;
-            color: #a3b8ff;
-            font-weight: bold;
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .features {
             display: flex;
             flex-wrap: wrap;
             margin-top: 20px;
+            gap: 10px;
         }
 
         .feature {
             display: flex;
             align-items: center;
-            margin-right: 20px;
-            margin-bottom: 10px;
+            padding: 6px 12px;
+            background-color: rgba(14, 165, 233, 0.1);
+            border-radius: 15px;
+            color: var(--secondary-color);
+            font-weight: 500;
         }
 
         .feature::before {
             content: '•';
-            color: #0066ff;
-            font-size: 24px;
+            color: var(--secondary-color);
+            font-size: 18px;
             margin-right: 8px;
         }
 
+        /* CTA Section */
         .cta-section {
             text-align: center;
-            padding: 60px 20px;
-            margin-top: 60px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            padding: 60px 30px;
+            margin: 40px auto;
+            background: rgb(235, 246, 252);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 1000px;
+            border: 1px solid var(--gray-light);
         }
 
         .cta-heading {
             font-size: 32px;
             margin-bottom: 20px;
-            color: #515254;
+            color: var(--dark-color);
+            font-weight: 700;
         }
 
         .cta-text {
@@ -212,27 +223,243 @@
             margin: 0 auto;
             line-height: 1.6;
             margin-bottom: 30px;
+            color: var(--gray-color);
         }
 
         .cta-button {
             display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(90deg, #0066ff, #3884ff);
+            padding: 14px 32px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
         }
 
-        /* Media Queries */
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .icon-container.blue {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        }
+
+        .icon-container.purple {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+
+        .icon-container.teal {
+            background: linear-gradient(135deg, #0ea5e9, #0369a1);
+        }
+
+        .icon {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .feature-description {
+            color: var(--gray-color);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Footer Section */
+        footer {
+           background-color: black;
+            color: white;
+            padding: 70px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .footer-logo p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-5px);
+        }
+
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #d1d5db;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-newsletter h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-newsletter p {
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #d1d5db;
+        }
+
+        .footer-bottom-links {
+            color: #d1d5db;
+        }
+
+        .highlight {
+            color: var(--primary-light);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .timeline::after {
                 left: 31px;
@@ -249,62 +476,6 @@
                 left: 18px;
             }
 
-            .left::after, .right::after {
-                left: 18px;
-            }
-
-            .right {
-                left: 0;
-            }
-        }
-
-        @media screen and (min-width: 769px) and (max-width: 1200px) {
-            .container {
-                padding: 40px 60px;
-            }
-            
-            .timeline::after {
-                left: 50%;
-            }
-            
-            .year-container {
-                width: 50%;
-            }
-            
-            .year-box {
-                margin: 0 20px;
-            }
-        }
-
-        @media screen and (min-width: 1201px) {
-            .container {
-                padding: 60px 80px;
-                max-width: 1400px;
-            }
-            
-            .timeline {
-                max-width: 1000px;
-            }
-            
-            .year-box {
-                padding: 30px 40px;
-                margin: 0 40px;
-            }
-            
-            .year {
-                font-size: 36px;
-            }
-            
-            .year-title {
-                font-size: 28px;
-            }
-            
-            .year-content {
-                font-size: 18px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
             h1 {
                 font-size: 36px;
             }
@@ -321,487 +492,155 @@
                 font-size: 20px;
             }
 
+            .cta-heading {
+                font-size: 28px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .year-box {
+                padding: 20px;
+            }
+
+            .year {
+                font-size: 24px;
+            }
+
+            .year-title {
+                font-size: 18px;
+            }
+
             .year-content {
                 font-size: 14px;
             }
 
+            .cta-section {
+                padding: 40px 20px;
+            }
+
             .cta-heading {
-                font-size: 28px;
+                font-size: 24px;
             }
-        }
-
-
-
-
-
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f8fafc;
-            padding: 2rem 1rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .icon-container.blue {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-        }
-
-        .icon-container.purple {
-            background: linear-gradient(135deg, #8b5cf6, #5b21b6);
-        }
-
-        .icon-container.teal {
-            background: linear-gradient(135deg, #14b8a6, #0f766e);
-        }
-
-        .icon {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .feature-description {
-            color: #64748b;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem 0.5rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
+            
             .feature-card {
-                padding: 1.5rem;
+                padding: 20px;
             }
-
-            .feature-title {
-                font-size: 1.1rem;
-            }
-
-            .feature-description {
-                font-size: 0.9rem;
-            }
-
+            
             .icon-container {
                 width: 50px;
                 height: 50px;
-                margin-bottom: 1rem;
             }
-
-            .icon {
-                width: 24px;
-                height: 24px;
+            
+            .feature-title {
+                font-size: 18px;
             }
         }
-
-        @media (max-width: 480px) {
-            .feature-card {
-                padding: 1.25rem;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:root {
-    --primary-color: #898e90;
-    --primary-gradient: linear-gradient(135deg, #43aefa 0%,rgb(95, 182, 232) 30%,rgb(76, 239, 236) 70%);
-    --dark-color: #1a1a2e;
-    --light-color: #f8fafc;;
-    --gray-color: #6b7280;
-    --gray-light: #e5e7eb;
-    --danger-color:rgb(247, 50, 50);
-    --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --transition: all 0.3s ease;
-    --border-radius: 8px;
-}
-:root {
-    --primary-color: #11a3cb;
-    --primary-gradient: linear-gradient(135deg, #43aefa 0%,rgb(95, 182, 232) 30%,rgb(76, 239, 236) 70%);
-    --dark-color: #1a1a2e;
-    --light-color: #f8fafc;;
-    --gray-color: #6b7280;
-    --gray-light: #e5e7eb;
-    --danger-color:rgb(247, 50, 50);
-    --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --transition: all 0.3s ease;
-    --border-radius: 8px;
-}
-footer {
-    background-color: black;
-    color: white;
-    padding: 70px 0 20px;
-    
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    margin-bottom: 50px;
-}
-
-.footer-logo h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.footer-logo p {
-    color: #d1d5db;
-    margin-bottom: 20px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    background: var(--primary-gradient);
-    transform: translateY(-5px);
-}
-
-.footer-links h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-links h3::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: var(--primary-gradient);
-    bottom: 0;
-    left: 0;
-}
-
-.footer-links ul li {
-    margin-bottom: 10px;
-}
-
-.footer-links ul li a {
-    color: #d1d5db;
-    transition: var(--transition);
-}
-
-.footer-links ul li a:hover {
-    color: white;
-    padding-left: 5px;
-}
-
-.footer-newsletter h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-newsletter h3::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: var(--primary-gradient);
-    bottom: 0;
-    left: 0;
-}
-
-.footer-newsletter p {
-    color: #d1d5db;
-    margin-bottom: 20px;
-}
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-bottom p {
-    color: #d1d5db;
-}
-
-.footer-bottom-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-bottom-links a {
-    color: #d1d5db;
-    transition: var(--transition);
-}
-
-.footer-bottom-links a:hover {
-    color: white;
-}
-.highlight{
-    color: #11a3cb;
-}
-@media (max-width: 992px) {
-  .footer-content {
-    gap: 2rem;
-  }
-
-  .footer-logo,
-  .footer-links,
-  .footer-newsletter {
-    flex: 1 1 45%;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .footer-logo,
-  .footer-links,
-  .footer-newsletter {
-    flex: 1 1 100%;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-links h3 {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-links h3::after {
-    width: 100%;
-    opacity: 0.3;
-  }
-
-  .footer-links h3::before {
-    content: "+";
-    position: absolute;
-    right: 0;
-    font-size: 1.5rem;
-    transition: transform 0.3s;
-  }
-
-  .footer-links h3.active::before {
-    transform: rotate(45deg);
-  }
-
-  .footer-links ul {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-  }
-
-  .footer-links ul.show {
-    max-height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-logo h2 {
-    font-size: 1.3rem;
-  }
-
-  .social-links {
-    justify-content: center;
-  }
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Our Journey</h1>
-            <p class="subtitle">All cards must be the same height and width for space calculations on large screens.</p>
+            <p class="subtitle">Tracing the growth and evolution of Excellent Programming Laboratory</p>
         </header>
 
         <div class="timeline-container">
             <div class="timeline">
-            <div class="year-container left">
-                <div class="year-box">
-                    <div class="year">2021</div>
-                    <div class="year-title">A Humble Beginning...</div>
-                    <div class="year-content">
-                        <p>Started with an intention to provide a Just Opportunity to maximum Students who deserve a chance in the IT Industry!!</p>
-                        <div class="stat">4 students joined</div>
-                        <div class="stat">2 teachers</div>
+                <div class="year-container left">
+                    <div class="year-box">
+                        <div class="year">2021</div>
+                        <div class="year-title">A Humble Beginning</div>
+                        <div class="year-content">
+                            <p>Our program officially began on 10th September 2021 Started with an intention to provide a just opportunity to maximum students who deserve a chance in the IT Industry! Driven by a sincere mission to offer fair opportunities to as many deserving students as possible, opening doors to a bright future in the IT industry.</p>
+                            <div class="stat">4 students joined</div>
+                            <div class="stat">2 teachers</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="year-container left">
-                <div class="year-box">
-                    <div class="year">2022</div>
-                    <div class="year-title">Expanding Our Reach</div>
-                    <div class="year-content">
-                        <p>Significant growth in our student base as word spread about our placement success.</p>
-                        <div class="stat">150 students joined</div>
-                        <div class="stat">100+ students placed</div>
+                <div class="year-container left">
+                    <div class="year-box">
+                        <div class="year">2022</div>
+                        <div class="year-title">Expanding Our Reach</div>
+                        <div class="year-content">
+                            <p>Significant growth in our student base as word spread about our placement success . With growing trust and recognition, our programs saw a surge in enrollments. A total of 150 students joined us, and more than 100 secured placements — a strong reflection of our commitment to student success.</p>
+                            <div class="stat">150 students joined</div>
+                            <div class="stat">100+ students placed</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="year-container left">
-                <div class="year-box">
-                    <div class="year">2023</div>
-                    <div class="year-title">Growing Stronger</div>
-                    <div class="year-content">
-                        <p>Our reputation in the industry continued to grow as more companies recognized our students' quality.</p>
-                        <div class="stat">300 students enrolled</div>
-                        <div class="stat">200+ students placed</div>
+                <div class="year-container left">
+                    <div class="year-box">
+                        <div class="year">2023</div>
+                        <div class="year-title">Growing Stronger</div>
+                        <div class="year-content">
+                            <p>Our reputation in the industry continued to grow as more companies recognized our students' quality.Building on our momentum, 2023 saw continued growth in both student enrollment and placement success . Over 300 students enrolled, with more than 200 securing positions at leading companies, further strengthening our industry reputation.</p>
+                            <div class="stat">300 students enrolled</div>
+                            <div class="stat">200+ students placed</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="year-container left">
-                <div class="year-box">
-                    <div class="year">2024</div>
-                    <div class="year-title">Reaching New Heights</div>
-                    <div class="year-content">
-                        <p>Expanded our curriculum and facilities to accommodate more students and offer diverse courses.</p>
-                        <div class="stat">400 students enrolled</div>
-                        <div class="stat">300+ students placed</div>
+                <div class="year-container left">
+                    <div class="year-box">
+                        <div class="year">2024</div>
+                        <div class="year-title">Reaching New Heights</div>
+                        <div class="year-content">
+                            <p>Expanded our curriculum and facilities to accommodate more students and offer diverse courses. We expanded our curriculum and upgraded our facilities to support a growing student community and provide a wider range of specialized courses tailored to industry demands.
+</p>
+                            <div class="stat">400 students enrolled</div>
+                            <div class="stat">300+ students placed</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="year-container left">
-                <div class="year-box">
-                    <div class="year">2025</div>
-                    <div class="year-title">Where We Are Today</div>
-                    <div class="year-content">
-                        <p>A testament to our commitment to quality education and placement opportunities.</p>
-                        <div class="stat">500+ students enrolled</div>
-                        <div class="stat">400+ students placed</div>
-                        <div class="stat">3 teachers</div>
-                        <div class="features">
-                            <div class="feature">Online classes</div>
-                            <div class="feature">Offline classes</div>
-                            <div class="feature">Extra time support</div>
-                            <div class="feature">Batch repeat option</div>
+                <div class="year-container left">
+                    <div class="year-box">
+                        <div class="year">2025</div>
+                        <div class="year-title">Where We Are Today</div>
+                        <div class="year-content">
+                            <p>A testament to our commitment to quality education and placement opportunities.Our journey reflects a steadfast commitment to delivering quality education and exceptional placement opportunities. Today, we proudly serve over 500 enrolled students, with more than 400 successfully placed in reputable companies.</p>
+                            <div class="stat">500+ students enrolled</div>
+                            <div class="stat">400+ students placed</div>
+                            <div class="stat">3 teachers</div>
+                            <div class="features">
+                                <div class="feature">Online classes</div>
+                                <div class="feature">Offline classes</div>
+                                <div class="feature">Extra time support</div>
+                                <div class="feature">Batch repeat option</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
 
         <div class="cta-section">
             <h2 class="cta-heading">Join Our Success Story</h2>
-            <p class="cta-text">Be part of our growing community where we focus on nurturing talent and creating IT professionals. We offer flexible learning options, including online and offline classes, extended support hours, and the opportunity to repeat batches if needed.</p>
-            <button class="cta-button">Enroll Now</button>
+            <p class="cta-text">Be part of our growing community where we focus on nurturing talent and creating IT professionals. We offer flexible learning options, including online and offline classes, extended support hours, and the opportunity to repeat batches if needed. Become a member of our thriving community dedicated to nurturing talent and shaping the next generation of IT professionals. We provide flexible learning formats—online and offline—along with extended support hours and the option to repeat batches to ensure your success.</p>
+          <a href="course.html"><button class="cta-button">Enroll Now</button></a>
         </div>
     </div>
            
- <div class="container">
+    <div class="container">
         <div class="features-grid">
             <!-- Career-Focused Tech Academy -->
             <div class="feature-card">
@@ -822,9 +661,8 @@ footer {
                     <svg class="icon" viewBox="0 0 24 24">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                         <circle cx="9" cy="7" r="4"/>
-                        <path d="m22 21-3-3m0 0a5 5 0 1 0-7-7 5 5 0 0 0 7 7Z"/>
-                        <circle cx="12" cy="8" r="7"/>
-                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
                 </div>
                 <h3 class="feature-title">Guidance from Industry Experts</h3>
@@ -839,9 +677,6 @@ footer {
                     <svg class="icon" viewBox="0 0 24 24">
                         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                        <circle cx="12" cy="13" r="1"/>
-                        <path d="M12 2v2"/>
-                        <path d="M12 20v2"/>
                     </svg>
                 </div>
                 <h3 class="feature-title">Comprehensive & Future-Ready Curriculum</h3>
@@ -851,68 +686,6 @@ footer {
             </div>
         </div>
     </div>
-      
-          
-           
-           
-
-
-
-
-
-
-<!-- Footer Section -->
- <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2><span class="highlight">E</span>xcellent <br><span class="highlight">P</span>rogramming <br> <span class="highlight">L</span>aboratory</h2>
-                    <p>Empowering students with programming skills since 2022</p>
-                  
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="courses.html">Courses</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                   
-                </div>
-                 
-                <div class="footer-links">
-                    <h3>Courses</h3>
-                    <ul>
-                        <li><a href="courses.html#c-programming">C Programming</a></li>
-                        <li><a href="courses.html#java-programming">Java Programming</a></li>
-                        <li><a href="courses.html#dsa">Data Structures</a></li>
-                        <li><a href="courses.html#python-programming">Python Programming</a></li>
-                    </ul>
-                </div>
-                <div class="footer-newsletter">
-                    <h3>Contact US</h3>
-                    <p>  <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;&nbsp; ‪+91 7741954147‬</p>
-                    <p><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;&nbsp; epl@gmail.com</p>
-                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Excellent Programming Laboratory. All Rights Reserved.</p>
-                 <div class="footer-bottom-links">
-                    Founder And CEO : Dhakane Goraksh & Mhaske Ganesh
-                </div>
-            </div>
-        </div>
-    </footer>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -932,9 +705,6 @@ footer {
             });
             
             yearContainers.forEach(container => {
-                container.style.opacity = 0;
-                container.style.transform = 'translateX(50px)';
-                container.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(container);
             });
 
@@ -962,52 +732,29 @@ footer {
             // Run on load and resize
             window.addEventListener('load', equalizeHeights);
             window.addEventListener('resize', equalizeHeights);
-        });
 
-
-
-
-
-
-
-
-
-
-// Add smooth hover effects and interactions
-        document.addEventListener('DOMContentLoaded', function() {
+            // Feature cards animation
             const cards = document.querySelectorAll('.feature-card');
             
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-4px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-
-            // Add subtle animation on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
+            const cardObserver = new IntersectionObserver(function(entries) {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        cardObserver.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
 
-              // Initially hide cards for animation
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s;
-                observer.observe(card);
+            // Observe each card
+            cards.forEach(card => {
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                cardObserver.observe(card);
             });
         });
     </script>
