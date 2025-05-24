@@ -83,7 +83,7 @@ img {
 }
 
 .highlight {
-    color: var(--primary-color); 
+    color:var(--primary-color) ;
     position: relative;
     z-index: 10;
 }
@@ -250,7 +250,7 @@ header .container {
 .logo h1 {
     font-size: 1.5rem;
     color: var(--dark-color);
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .nav-links {
