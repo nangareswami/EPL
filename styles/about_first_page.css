@@ -26,11 +26,10 @@ body {
   border-radius: 30px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  min-height: 400px;
   width: 90%;
   margin-left: 70px;
-  margin-bottom: 80px;
-  height: 650px;
+  margin-bottom: 30px;
+  height: 450px;
 }
 
 .image-container {
@@ -137,10 +136,11 @@ body {
 }
 
 .header {
-  background: linear-gradient(to bottom,  #023053,  #02518d);
+  background: linear-gradient(to bottom, #274861, #5984a5);
   color: white;
   text-align: center;
   padding: 50px 20px;
+    border-radius: 0 0 50% 50% / 30px;
 }
 
 .header h1 {
@@ -168,7 +168,7 @@ body {
   margin: 20px;
   padding: 20px;
   width: 550px;
-  height: 350px;
+  height: 300px;
   min-height: 100px;
   display: flex;
   flex-direction: column;
@@ -197,32 +197,36 @@ body {
 }
 
 .image-container2 {
-  height: 100%;
+ height: 100%;
   width: 100%;
+   margin-right: 20px;
+   margin-top: 0;
 }
 
 .image-container2 img {
-  height: 100%;
+   height: 78%;
+  padding: 30px;
   width: 100%;
-  border-radius: 4
-  0px;
+  margin-right: 80px;
+  border-radius: 65px;
   display: block;
-  object-fit: cover;
+  margin-bottom: 30px;
 }
 
 .image-container3 {
-  height: 80%;
+  height: 75%;
   width: 100%;
-  margin-right: 50px;
+  margin-left: 20px;
 }
 
 .image-container3 img {
-  height: 100%;
-  padding: 20px;
+  height: 110%;
+  padding: 10px;
   width: 100%;
   margin-right: 80px;
-  border-radius: 50px;
+  border-radius: 25px;
   display: block;
+  margin-bottom: 30px;
 }
 
 .hero-image2,
@@ -231,12 +235,13 @@ body {
   height: auto;
   border-radius: 20px;
   display: block;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
-.lern_more{
-   font-size: 20px; 
-  text-decoration: none; 
-  color:#1474b4;
+
+.lern_more {
+  font-size: 20px;
+  text-decoration: none;
+  color: #1474b4;
 }
 
 :root {
@@ -251,6 +256,7 @@ body {
   --transition: all 0.3s ease;
   --border-radius: 8px;
 }
+
 .highlight {
   color: #11a3cb;
 }
@@ -375,9 +381,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
- 
+
 
   .image-container,
   .image-container3 {

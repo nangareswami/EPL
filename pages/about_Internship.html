@@ -93,7 +93,7 @@
         </div>
 
         <div class="row2">
-            <div class="sub-row2" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
+            <div class="sub-row2 sub-row1" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
                 <div class="box-img">
                     <div class="circle-box"><i class="bi-code-slash large-icon"></i></div>
                 </div>
@@ -105,7 +105,7 @@
                 </div>
             </div>
 
-            <div class="sub-row2" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
+            <div class="sub-row2 sub-row1" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
                 <div class="box-img">
                     <div class="circle-box"><i class="bi bi-laptop large-icon"></i></div>
                 </div>
@@ -117,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="sub-row2" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
+            <div class="sub-row2 sub-row1" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
                 <div class="box-img">
                     <div class="circle-box"><i class="bi bi-currency-dollar large-icon"></i></div>
                 </div>
@@ -130,6 +130,32 @@
             </div>
         </div>
     </div>
+    <!-- ------------------------------count---------------------- -->
+
+    <div class="stats-container">
+        <!-- <h1>OUR STATISTICS</h1> -->
+        
+        <div class="stats-wrapper">
+            <div class="stat-box">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number" id="allstudents">0</div>
+                <div class="stat-label">ALL STUDENTS</div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-icon">🧑🏻‍🎓</div>
+                <div class="stat-number" id="current">0</div>
+                <div class="stat-label">CURRENT STUDENTS</div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-icon">🔑</div>
+                <div class="stat-number" id="passout">0</div>
+                <div class="stat-label">PASSOUT</div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="main-container2 copy1">
         <div class="Heading1">
@@ -142,40 +168,38 @@
         <!-- <button class="btn btn-primary">Get in Touch With Us</button> -->
 
     </div>
+
     <!-- --------------courses-div------------------------------------------- -->
 
     <div class="all all-two">
         <div class="row1 row-second">
             <div class="sub-row1" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="300">
-                <div class="box-img radius"><img src="../images/C_logo copy.png"></div>
+                <div class="box-img radius"><img src="../images/frantend_logo.png"></div>
                 <div class="box-heading">
-                    <h3>C Language</h3>
+                    <h3>frontend languages</h3>
                 </div>
                 <div class="box-para">
-                    <p>This course offers a comprehensive introduction to the C programming language, a foundational
-                        tool in computer science and software development.</p>
+                    <p>HTML , CSS , JavaScript ,React.js, Vue.js, Angular, jQuery,Bootstrap.</p>
                 </div>
             </div>
 
             <div class="sub-row1" data-aos="zoom-in" data-aos-delay="10" data-aos-duration="300">
                 <div class="box-img radius"><img src="../images/java_logo.png"></div>
                 <div class="box-heading">
-                    <h3>Java</h3>
+                    <h3> Backend Languages </h3>
                 </div>
                 <div class="box-para">
-                    <p>Start your coding journey with Java. In this beginner-friendly course, you'll learn the basics of
-                        Java syntax, object-oriented programming concepts, and how to build simple applications</p>
+                    <p>Common backend programming languages include PHP, Python, Java, Node.js (JavaScript runtime). </p>
                 </div>
             </div>
 
             <div class="sub-row1" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="300">
-                <div class="box-img radius"><img src="../images/Frantend_logo.png"></div>
+                <div class="box-img radius"><img src="../images/sql_logo.png"></div>
                 <div class="box-heading">
-                    <h3>Frontend</h3>
+                    <h3>Database</h3>
                 </div>
                 <div class="box-para">
-                    <p>This course introduces students to the core technologies and tools used in frontend web
-                        development. Topics include HTML5, CSS3, and JavaScript, modern frontend frameworks.</p>
+                    <p>MySQL, PostgreSQL, Oracle, and Microsoft SQL Server ,MongoDB.</p>
                 </div>
             </div>
         </div>
@@ -201,6 +225,54 @@
         AOS.init();
     </script>
 <script src="scripts/about_Internship.js"></script>
+ <script>
+        function animateCounter(elementId, targetNumber, duration = 1000) {
+            const element = document.getElementById(elementId);
+            let startTime = null;
+            const formatter = new Intl.NumberFormat('en-US');
+            
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const currentValue = Math.floor(progress * targetNumber);
+                
+
+                element.textContent = formatter.format(currentValue);
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            
+            window.requestAnimationFrame(step);
+        }
+        
+        window.addEventListener('load', () => {
+            animateCounter('allstudents', 950);
+            animateCounter('current', 150 );
+            animateCounter('passout', 800);
+        });
+    
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            if (!animated && isElementInViewport(document.querySelector('.stats-container'))) {
+                animateCounter('allstudents', 950);
+                animateCounter('current', 150);
+                animateCounter('passout', 800);
+                animated = true;
+            }
+        });
+    </script>
 </body>
 
 </html>
